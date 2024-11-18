@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master German | Language of Innovation</title>
+    <link href="css/all1.min.css" rel="stylesheet">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <script src="https://kit.fontawesome.com/bf07ff0e11.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            padding-top: 70px; /* Add padding equal to header height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            position: relative; /* Create stacking context */
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #3498DB;
+            --accent-color: #E74C3C;
+            --light-gray: #ECF0F1;
+            --text-dark: #2C3E50;
+            --text-light: #7F8C8D;
+        }
+
+        /* Updated Header and Navigation Styles */
+        header {
+            background-color: var(--primary-color);
+            padding: 0;
+            position: absolute;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+            height: 70px;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            padding: 15px 20px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--accent-color);
+        }
+
+        .nav-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            margin-left: auto;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 20px 25px;
+            display: block;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--primary-color);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .nested-dropdown {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            display: none;
+            background-color: var(--primary-color);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content .has-nested:hover .nested-dropdown {
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .nav-item:hover .dropdown-content {
+            display: block;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 15px;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        .hamburger-line {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive Navigation */
+        @media screen and (max-width: 1024px) {
+            .hamburger {
+                display: block;
+                margin-right: 15px;
+            }
+
+            .nav-list {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                flex-direction: column;
+            }
+
+            .nav-list.active {
+                display: flex;
+            }
+
+            .nav-item {
+                width: 100%;
+            }
+
+            .dropdown-content,
+            .nested-dropdown {
+                position: static;
+                width: 100%;
+                display: none;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-item.active .dropdown-content,
+            .has-nested.active .nested-dropdown {
+                display: block;
+            }
+
+            .nav-link {
+                padding: 15px 25px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .dropdown-content a {
+                padding-left: 40px;
+            }
+
+            .nested-dropdown a {
+                padding-left: 60px;
+            }
+        }
+
+        /* Modern Animations */
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .gradient-animate {
+            background: linear-gradient(-45deg, #ff6b6b, #4ecdc4, #45b7d1, #96e6a1);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .float-up {
+            animation: floatUp 0.8s ease-out forwards;
+        }
+
+        /* 3D Card Effect */
+        .card-3d {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: transform 0.5s;
+        }
+
+        .card-3d:hover {
+            transform: rotateX(10deg) rotateY(10deg);
+        }
+
+        /* Glass Morphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Text Gradient */
+        .text-gradient {
+            background: linear-gradient(to right, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Scroll Snap */
+        .scroll-snap-container {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        .scroll-snap-section {
+            scroll-snap-align: start;
+            height: 100vh;
+        }
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 1rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <i class="fas fa-globe-americas"></i>
+                <span>Expat Life</span>
+            </a>
+            <button class="hamburger">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Coaching ▾</a>
+                    <div class="dropdown-content">
+                        <a href="ielts.html">IELTS</a>
+                        <a href="pte.html">PTE</a>
+                        <div class="has-nested">
+                            <a href="#">Foreign languages ▸</a>
+                            <div class="nested-dropdown">
+                                <a href="french.html">French</a>
+                                <a href="german.html">German</a>
+                                <a href="spaniish.html">Spanish</a>
+                                <a href="japanese.html">Japanese</a>
+                                <a href="chinese.html">Chinese(mandarin)</a>
+                                <a href="polish.html">Polish</a>
+                            </div>
+                        </div>
+                        <a href="campustocorporat.html">Campus to corporate</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="visa.html" class="nav-link">Visas</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Study In ▾</a>
+                    <div class="dropdown-content">
+                        <a href="uk.html">UK</a>
+                        <a href="usa.html">USA</a>
+                        <a href="germany.html">Germany</a>
+                        <a href="australia.html">Australia</a>
+                        <a href="newzealand.html">New Zealand</a>
+                        <a href="ireland.html">Ireland</a>
+                        <a href="canada.html">Canada</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="consulting.html" class="nav-link">Consulting</a>
+                </li>
+                <li class="nav-item">
+                    <a href="aboutus.html" class="nav-link">About us</a>
+                </li>
+            </ul>
+        </nav>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const hamburger = document.querySelector('.hamburger');
+                const navList = document.querySelector('.nav-list');
+                const navItems = document.querySelectorAll('.nav-item');
+                const hasNested = document.querySelectorAll('.has-nested');
+
+                hamburger.addEventListener('click', function () {
+                    navList.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+
+                navItems.forEach(item => {
+                    if (item.querySelector('.dropdown-content')) {
+                        item.querySelector('.nav-link').addEventListener('click', function (e) {
+                            if (window.innerWidth <= 1024) {
+                                e.preventDefault();
+                                item.classList.toggle('active');
+
+                                navItems.forEach(otherItem => {
+                                    if (otherItem !== item) {
+                                        otherItem.classList.remove('active');
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+
+                hasNested.forEach(item => {
+                    item.querySelector('a').addEventListener('click', function (e) {
+                        if (window.innerWidth <= 1024) {
+                            e.preventDefault();
+                            item.classList.toggle('active');
+
+                            hasNested.forEach(otherItem => {
+                                if (otherItem !== item) {
+                                    otherItem.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                });
+
+                document.addEventListener('click', function (e) {
+                    if (!navList.contains(e.target) && !hamburger.contains(e.target)) {
+                        navList.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                });
+
+                window.addEventListener('resize', function () {
+                    if (window.innerWidth > 1024) {
+                        navList.classList.remove('active');
+                        hamburger.classList.remove('active');
+                        navItems.forEach(item => item.classList.remove('active'));
+                        hasNested.forEach(item => item.classList.remove('active'));
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu after clicking
+                    navLinks.classList.remove('active');
+                });
+            });
+        </script>
+
+<div class="bg-slate-900 text-white">
+    <!-- Hero Section -->
+    <div class="scroll-snap-section relative min-h-screen gradient-animate overflow-hidden">
+        <div class="absolute inset-0 bg-slate-900/50"></div>
+        <div class="container mx-auto px-4 relative">
+            <div class="flex flex-col lg:flex-row items-center justify-between min-h-screen">
+                <div class="lg:w-1/2 pt-20 lg:pt-0 float-up">
+                    <h1 class="text-6xl lg:text-8xl font-bold mb-6">
+                        Sprechen Sie
+                        <span class="text-gradient">Deutsch?</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8">
+                        Embark on a journey to master the language of philosophers, innovators, and visionaries.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="px-8 py-4 bg-white text-slate-900 rounded-full hover:bg-gray-100 transition-colors font-bold">
+                            Start Learning
+                        </button>
+                        <button class="px-8 py-4 border-2 border-white rounded-full hover:bg-white/10 transition-colors">
+                            Explore Levels
+                        </button>
+                    </div>
+                    <!-- Stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+                        <div class="glass rounded-xl p-6 text-center">
+                            <h3 class="text-3xl font-bold mb-2">95M+</h3>
+                            <p class="text-gray-300">Native Speakers</p>
+                        </div>
+                        <div class="glass rounded-xl p-6 text-center">
+                            <h3 class="text-3xl font-bold mb-2">#2</h3>
+                            <p class="text-gray-300">Scientific Papers</p>
+                        </div>
+                        <div class="glass rounded-xl p-6 text-center">
+                            <h3 class="text-3xl font-bold mb-2">4th</h3>
+                            <p class="text-gray-300">World Economy</p>
+                        </div>
+                        <div class="glass rounded-xl p-6 text-center">
+                            <h3 class="text-3xl font-bold mb-2">130M+</h3>
+                            <p class="text-gray-300">Global Learners</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 hidden lg:flex justify-center items-center">
+                    <img src="/german-culture.png" alt="German Culture" class="max-w-lg float-up">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Language Proficiency Levels -->
+    <div class="scroll-snap-section py-20 bg-slate-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-bold text-center mb-16">
+                Your Path to <span class="text-gradient">Mastery</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- A1-A2 Level -->
+                <div class="card-3d bg-gradient-to-br from-pink-500 to-orange-500 rounded-2xl p-8 text-white">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-2xl font-bold">Beginner</h3>
+                            <span class="text-xl font-bold">A1-A2</span>
+                        </div>
+                        <p class="text-gray-100">Master the basics of German communication:</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Basic conversations</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Present tense</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Essential vocabulary</span>
+                            </li>
+                        </ul>
+                        <button class="w-full py-3 bg-white/20 rounded-lg hover:bg-white/30 transition-colors mt-4">
+                            Start Here
+                        </button>
+                    </div>
+                </div>
+
+                <!-- B1-B2 Level -->
+                <div class="card-3d bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl p-8 text-white">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-2xl font-bold">Intermediate</h3>
+                            <span class="text-xl font-bold">B1-B2</span>
+                        </div>
+                        <p class="text-gray-100">Expand your German proficiency:</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Complex grammar</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Business German</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Advanced communication</span>
+                            </li>
+                        </ul>
+                        <button class="w-full py-3 bg-white/20 rounded-lg hover:bg-white/30 transition-colors mt-4">
+                            Level Up
+                        </button>
+                    </div>
+                </div>
+
+                <!-- C1-C2 Level -->
+                <div class="card-3d bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl p-8 text-white">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-2xl font-bold">Advanced</h3>
+                            <span class="text-xl font-bold">C1-C2</span>
+                        </div>
+                        <p class="text-gray-100">Achieve native-like fluency:</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Academic German</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Literature & Culture</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Professional mastery</span>
+                            </li>
+                        </ul>
+                        <button class="w-full py-3 bg-white/20 rounded-lg hover:bg-white/30 transition-colors mt-4">
+                            Master German
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why German Section -->
+    <div class="scroll-snap-section py-20 gradient-animate">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-bold text-center mb-16">
+                Why Learn <span class="text-gradient">German?</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Business -->
+                <div class="glass rounded-2xl p-8 hover:bg-white/20 transition-all cursor-pointer">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-briefcase text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Business Opportunities</h3>
+                    <p class="text-gray-300">Access Europe's largest economy and global business networks.</p>
+                </div>
+
+                <!-- Education -->
+                <div class="glass rounded-2xl p-8 hover:bg-white/20 transition-all cursor-pointer">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Education Excellence</h3>
+                    <p class="text-gray-300">Study at world-renowned universities tuition-free.</p>
+                </div>
+
+                <!-- Science & Technology -->
+                <div class="glass rounded-2xl p-8 hover:bg-white/20 transition-all cursor-pointer">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-microscope text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Scientific Research</h3>
+                    <p class="text-gray-300">Access cutting-edge research and innovation.</p>
+                </div>
+
+                <!-- Culture -->
+                <div class="glass rounded-2xl p-8 hover:bg-white/20 transition-all cursor-pointer">
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-theater-masks text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Rich Culture</h3>
+                    <p class="text-gray-300">Immerse yourself in art, literature, and philosophy.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Official Exams -->
+    <div class="scroll-snap-section py-20 bg-slate-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-bold text-center mb-16">
+                German Language <span class="text-gradient">Certifications</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Goethe-Zertifikat -->
+                <div class="card-3d bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-2xl p-8">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold">Goethe-Zertifikat</h3>
+                        <p class="text-gray-100">Internationally recognized certificates for all levels.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>A1 to C2 levels</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Worldwide recognition</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- TestDaF -->
+                <div class="card-3d bg-gradient-to-br from-violet-500 to-purple-500 rounded-2xl p-8">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold">TestDaF</h3>
+                        <p class="text-gray-100">Test of German as a Foreign Language for academic purposes.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>University admission</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Academic preparation</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- DSH -->
+                <div class="card-3d bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl p-8">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold">DSH</h3>
+                        <p class="text-gray-100">Deutsche Sprachprüfung für den Hochschulzugang</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>University entrance exam</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Higher education focused</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Learning Features -->
+    <div class="scroll-snap-section py-20 bg-slate-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-bold text-center mb-16">
+                Modern Learning <span class="text-gradient">Experience</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Interactive Exercises -->
+                <div class="glass hover:bg-white/20 transition-all p-8 rounded-2xl group cursor-pointer">
+                    <div class="relative overflow-hidden mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform">
+                            <i class="fas fa-laptop-code text-3xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Interactive Exercises</h3>
+                    <p class="text-gray-300 mb-4">Practice with real-time feedback and adaptive learning technology.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>Instant feedback</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>Progress tracking</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Virtual Classes -->
+                <div class="glass hover:bg-white/20 transition-all p-8 rounded-2xl group cursor-pointer">
+                    <div class="relative overflow-hidden mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-red-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform">
+                            <i class="fas fa-video text-3xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Live Virtual Classes</h3>
+                    <p class="text-gray-300 mb-4">Interactive sessions with native German speakers and experts.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>Small groups</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>Flexible scheduling</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cultural Immersion -->
+                <div class="glass hover:bg-white/20 transition-all p-8 rounded-2xl group cursor-pointer">
+                    <div class="relative overflow-hidden mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform">
+                            <i class="fas fa-globe-europe text-3xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Cultural Immersion</h3>
+                    <p class="text-gray-300 mb-4">Experience German culture through virtual events and activities.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>Virtual tours</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>Cultural workshops</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Stories Carousel -->
+    <div class="scroll-snap-section py-20 gradient-animate">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-bold text-center mb-16">
+                Student <span class="text-gradient">Success Stories</span>
+            </h2>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- Success Story 1 -->
+                    <div class="swiper-slide">
+                        <div class="glass rounded-2xl p-8 mx-4">
+                            <div class="flex items-start gap-6">
+                                <img src="student1.jpg" alt="Student" class="w-20 h-20 rounded-full object-cover">
+                                <div>
+                                    <p class="text-xl italic mb-4">"Learning German opened doors to studying at TU Munich. The structured approach and supportive environment made all the difference."</p>
+                                    <h4 class="font-bold">Michael Chen</h4>
+                                    <p class="text-gray-300">Engineering Student at TU Munich</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more success stories -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- German Culture Showcase -->
+    <div class="scroll-snap-section py-20 bg-slate-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-bold text-center mb-16">
+                Discover German <span class="text-gradient">Culture</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Literature & Philosophy -->
+                <div class="card-3d bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Literature & Philosophy</h3>
+                    <div class="space-y-4">
+                        <p class="text-gray-200">Explore works by:</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-book"></i>
+                                <span>Johann Wolfgang von Goethe</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-book"></i>
+                                <span>Friedrich Nietzsche</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-book"></i>
+                                <span>Hermann Hesse</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Science & Innovation -->
+                <div class="card-3d bg-gradient-to-br from-emerald-600 to-cyan-600 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Science & Innovation</h3>
+                    <div class="space-y-4">
+                        <p class="text-gray-200">German contributions to:</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-microscope"></i>
+                                <span>Quantum Physics</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-car"></i>
+                                <span>Automotive Engineering</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-robot"></i>
+                                <span>Industry 4.0</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Packages -->
+    <div class="scroll-snap-section py-20 bg-slate-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-bold text-center mb-16">
+                Choose Your <span class="text-gradient">Learning Path</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Basic Package -->
+                <div class="glass rounded-2xl p-8 relative overflow-hidden group hover:bg-white/20 transition-all">
+                    <div class="absolute top-0 right-0 bg-gradient-to-bl from-blue-500 to-transparent w-32 h-32 -mr-16 -mt-16 rotate-45 transform group-hover:rotate-90 transition-transform"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold mb-4">Basic</h3>
+                        <div class="text-4xl font-bold mb-6">€99<span class="text-xl font-normal">/month</span></div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span>Group Classes</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span>Basic Materials</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span>Community Access</span>
+                            </li>
+                        </ul>
+                        <button class="w-full py-3 bg-white/20 rounded-lg hover:bg-white/30 transition-colors">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="glass rounded-2xl p-8 relative overflow-hidden group hover:bg-white/20 transition-all transform scale-105">
+                    <div class="absolute top-0 right-0 bg-gradient-to-bl from-purple-500 to-transparent w-32 h-32 -mr-16 -mt-16 rotate-45 transform group-hover:rotate-90 transition-transform"></div>
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">Popular</span>
+                    </div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold mb-4">Premium</h3>
+                        <div class="text-4xl font-bold mb-6">€199<span class="text-xl font-normal">/month</span></div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span>1-on-1 Classes</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span>Premium Materials</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span>Cultural Workshops</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span>Exam Preparation</span>
+                            </li>
+                        </ul>
+                        <button class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg hover:opacity-90 transition-opacity">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Business Package -->
+                <div class="glass rounded-2xl p-8 relative overflow-hidden group hover:bg-white/20 transition-all">
+                    <div class="absolute top-0 right-0 bg-gradient-to-bl from-emerald-500 to-transparent w-32 h-32 -mr-16 -mt-16 rotate-45 transform group-hover:rotate-90 transition-transform"></div>
+                    <div class="relative">
+                        <h3 class="text-2xl font-bold mb-4">Business</h3>
+                        <div class="text-4xl font-bold mb-6">€299<span class="text-xl font-normal">/month</span></div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span>Business German</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span>Industry Specific</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span>Personal Mentor</span>
+                            </li>
+                        </ul>
+                        <button class="w-full py-3 bg-white/20 rounded-lg hover:bg-white/30 transition-colors">
+                            Contact Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            centeredSlides: true,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('float-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
+
+    <!-- FAQ Section -->
+    <div class="scroll-snap-section py-20 bg-slate-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-bold text-center mb-16">
+                Common <span class="text-gradient">Questions</span>
+            </h2>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="glass rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white/10 transition-colors">
+                        <span class="text-lg font-semibold">How long does it take to learn German?</span>
+                        <i class="fas fa-plus transform transition-transform"></i>
+                    </button>
+                    <div class="px-6 py-4 hidden">
+                        <p class="text-gray-300">The time to learn German varies based on your starting level, dedication, and learning intensity. Generally, reaching B1 level takes about 350-400 hours of study.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="glass rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white/10 transition-colors">
+                        <span class="text-lg font-semibold">Is German difficult to learn?</span>
+                        <i class="fas fa-plus transform transition-transform"></i>
+                    </button>
+                    <div class="px-6 py-4 hidden">
+                        <p class="text-gray-300">While German has some unique features like compound words and grammatical cases, its logical structure and similarities with English make it accessible for English speakers.</p>
+                    </div>
+                </div>
+
+                <!-- More FAQ items -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="scroll-snap-section py-20 gradient-animate">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-bold text-center mb-16">
+                Start Your <span class="text-gradient">Journey</span>
+            </h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="glass rounded-2xl p-8">
+                    <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Name -->
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium">Name</label>
+                            <input type="text" class="w-full px-4 py-3 bg-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 transition-all">
+                        </div>
+
+                        <!-- Email -->
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium">Email</label>
+                            <input type="email" class="w-full px-4 py-3 bg-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 transition-all">
+                        </div>
+
+                        <!-- Level -->
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium">Current Level</label>
+                            <select class="w-full px-4 py-3 bg-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 transition-all">
+                                <option>Complete Beginner</option>
+                                <option>A1-A2</option>
+                                <option>B1-B2</option>
+                                <option>C1-C2</option>
+                            </select>
+                        </div>
+
+                        <!-- Course Type -->
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium">Course Type</label>
+                            <select class="w-full px-4 py-3 bg-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 transition-all">
+                                <option>Group Classes</option>
+                                <option>Private Lessons</option>
+                                <option>Business German</option>
+                                <option>Exam Preparation</option>
+                            </select>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="space-y-2 md:col-span-2">
+                            <label class="block text-sm font-medium">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 bg-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 transition-all"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="md:col-span-2">
+                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg hover:opacity-90 transition-opacity font-semibold">
+                                Start Learning German
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Expat Life</h3>
+                <p>We help expats navigate their journey abroad with comprehensive support and resources for a
+                    successful international lifestyle.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> info@expatlife.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Global Street, International City</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Expat Life. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <style src="js/script.js"></style>
+</body>
+</html>
+
